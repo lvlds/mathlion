@@ -4,7 +4,7 @@
 
 # Mathlion
 
-[![Build Status](https://travis-ci.org/fermiumlabs/mathlion.svg?branch=master)](https://travis-ci.org/fermiumlabs/mathlion) [![Github Releases (by Release)](https://img.shields.io/github/downloads/fermiumlabs/mathlion/total.svg)](https://github.com/fermiumlabs/mathlion/releases/latest)
+[![Build Status](https://travis-ci.org/lvlds/mathlion.svg?branch=master)](https://travis-ci.org/lvlds/mathlion)
 
 ![logo](logo.png)
 
@@ -50,10 +50,9 @@ Remember that starting from Kibana 5.0 you always need an update version of ever
 
 //plot the horizontal statistical mean and variance
 .es(*).math("me=mean(source); va=var(source)")
-.value(1).math(me*source) 
-.value(1).math("(me+sqrt(va))*source") 
+.value(1).math(me*source)
+.value(1).math("(me+sqrt(va))*source")
 .value(1).math("(me-sqrt(va))*source")
-
 ```
 
 ## Supported Kibana versions
@@ -78,10 +77,10 @@ For upcoming features and TODOs check [here](https://github.com/fermiumlabs/math
 
 If you need to update mathlion for a new Kibana release:
 
-1. Add your version to package.json, inside "kibanas".
-2. Inside travis.yml add an "ELASTIC_VERSION" environmental variable with the latest version of kibana.
-3. commit your changes
-4. run `npm version patch`
+1.  Add your version to package.json, inside "kibanas".
+2.  Inside travis.yml add an "ELASTIC_VERSION" environmental variable with the latest version of kibana.
+3.  commit your changes
+4.  run `npm version patch`
 
 ---
 

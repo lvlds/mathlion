@@ -12,10 +12,8 @@ sudo: required
 dist: trusty
 
 env:
-- ELASTIC_VERSION="5.6.0"
-- ELASTIC_VERSION="5.6.4" DEPLOY="true"
-
-
+- ELASTIC_VERSION="5.6.6"
+- ELASTIC_VERSION="5.6.6" DEPLOY="true"
 
 before_script:
 - CXX="g++-4.8"
@@ -38,14 +36,15 @@ deploy:
   provider: releases
   file_glob: true
   api_key:
-    secure: pJitDpcL+ApeS39FK96Jm4o+5grv/XmfnPO0EK753WvF+biMjvDLE2/7vKF0jUzHNZrNVGmLSXLxv0JqIliDyhS7H1SLiOrlQb/JpROJy44W8InDVW00YcpUXqezMrX4J2w5LdhlMZ6X5C8uo6VEI4DmexT6apQ1atWXa3Ew/ZaAzVNvnXq3S1NasAJxBZsZ+vOaJM/eubgpQ61z2iww/S9Q4U32RSG6/fX1xZ/rj2Mc0VWzdT3jBr4v8ROooG42n33T8zqTfuw/Ml5yqjy+a7niCZ+mJESWWnZHC773xlyo2aEOBnsMrdxrCgO+xqZo5BC3wWssMmXFaMIkgC380IOapM0/r7rG+tLhBilGsx0nxeE8AR2PoZXGPAxEb2obqr8s1e8Cex6JGGY8WWp9aytRUgxXsWRyV6dtEef9mRVhMxXC83cfBE4WyVbL054E2ePlhTFD6UwzHR+86YK/jT+05UoQlGDmEFPB4uCxZBhHTta+hJ+fvcxTfqDltL+PqZ65Z3DQP38PTiDjVeuthIJ15TtqO5AFOH5FR1vlEG4zsMfc/Vc4voHzz/BqxK7RFM27xM8OfYqwMAzNh58KriJS5ALwgP7ejM2M4RkmrwOcC8wcCI16vJk5TC66vVU79eWpAgL/oNJppOiHC3q/sSuJWmCUteDdGEJeMCP5AMg=
+    secure: "CXwnbq7fB3Qun495+IlbHt/b+2zuk3AsO9BFCsyTA6Y8jtrfAWvy+b0cVmTYUSrAQ1P1A1r5y4EjWxNGD59Z8nOosOPzzWxeqkDEyn1s16Q5NP1eJd+pcGSPTkxAJ1Tk/cx+c98U+p8TiIhAPv2TuJL9WIhD4EDyewPOvCS9dVk7g8XHF0pMbH8DTLX6IidegffDiM+yjsxr/5CgfbYrQUKcxiXYw7uIL7+/TeCOMep8yrFYaoYn4ZkBqOMNlEBZPXtKKwk/UR0bG/dul6n7OWehRa1o9WGDhW5DgyoSKOLyQvwaKB7zvztPKlVhk4ngu3pAlCw6lAwDqyk1FUQrzAw7vWjWtnSxo1pVH9Z0vdyYU3qKgL9mr3vB6Fs/n/c/ZNheLrFd4pluKbYSKVYvn1FjqYTNfVDAK4OLEXY58YZ69O6JYArFyUb9aSOSyHNqRCKiFiHAelnH5lLmApcvVD1NhGaVKx5UjB3/GYY1wbzeU4s3gq+Z7BT0BMRD9h8vppkpcFcTzylE68N4Ekt7VxtIUHfQ4SSuEMX3BUhG8pOWVef/LVwaI/rUn5SdB0Op8CtOY6GU6y2MpHOncO8TabbklUDYFGjxTDNigZSi9mIgHboZ1P6CR92QjGJxfBF4CQG+tggTJzAyNVQbqKn3xX7pCI/EbeJZr5qyYJiolCw="
   file: target/mathlion-*.zip
   skip_cleanup: true
   draft: true
   on:
-    repo: fermiumlabs/mathlion
+    repo: lvlds/mathlion
     tags: true
     condition: "$DEPLOY = true"
 notifications:
   email: false
-  slack: fermiumlabs:0BfrFyD9uqr9bFhsH0Etn4wo
+  slack:
+    secure: "cFlLzNkr2Pd+yjMh0yza1Me69ymutLqIAYo6FMpCnlk0zFw2CVlCCz54E/u2hF1ZbVcwb0OBHhmJ6U5h2lznjcBHMZLeAC4uob0SAHJOcqi9vALg3wtanke5GNfJbZrV4PmocYRJBTXWT9ADfLS0okf+AU0xMrH2XPKFU726aA/0A/+qzc4uu/SgZwfJesHejV3qVIsfQHDaWIyuhr7/ywUGwL34YIgGZbVhr6zNlmVVWg4AmzShZYoXpOB6Cl8JkCTVMyHW9AYN+tRY4zdxvu6rZR2slZJcyfaNfuLO1UkmO09RqoCSoyLt4lGdHXm18GI+u4FIM+z2foFuSlGeVG7k+vxSZYMJTnr1GaONA6hCERb8FV4N983inPg/LGcdMm+z3BWUO/WeNXRkEyvxU5m2Hx/JyGibOOMB+buYXzGbCo5+xnTO+JCXCKYGKH1oOy2s+AdgcvzNhYmMoNf7HwOUDBPaqub6jE1x7ThRxXfdoOnrZp8NfOectqVyy5pVBvlu2pcKaWpm/eQSGDKSuqyNfny8gQhyoyuutNZV//JefYWefJKKuwQ5jiVT3AQn+tUlp2tKjl60SV0uaX+GzKWlwGTcEGGzfihDrG5Z3IOLN2TwYUJRFJ/vHshIiUajfNkduPLkDeNgNmayqSxqaefdnzpHVgaNwqAm7v0D4nw="
